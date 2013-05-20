@@ -1,3 +1,17 @@
+# appfog 向け laravel 3.2.14
+
+appfog ですぐに使えるように設定ファイル等を考慮した laravel です。
+設定すべきファイルは下記の通り。
+
+- paths.php
+-- production(appfog で作成したアプリ) のホスト名
+- application/config/production/application.php
+-- 本番向けの key を設定
+- application/config/production/database.php
+-- af tunnel の結果で migration 出来るようにしておくといいと思います
+
+以下、オリジナルの readme
+
 # [Laravel](http://laravel.com) - A PHP Framework For Web Artisans
 
 Laravel is a clean and classy framework for PHP web development. Freeing you
