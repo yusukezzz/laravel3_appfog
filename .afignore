@@ -39,3 +39,11 @@ dwsync.xml
 intermediate
 publish
 .git
+
+# laravel environment dependencies
+storage/cache/*
+storage/database/*
+storage/logs/*
+storage/sessions/*
+storage/views/*
+storage/work/*
