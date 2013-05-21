@@ -24,7 +24,7 @@ class Base_Model extends Eloquent
      *
      * @return array
      */
-    public static function formParams()
+    public static function knownParams()
     {
         return array_keys(static::$rules);
     }
@@ -38,7 +38,7 @@ class Base_Model extends Eloquent
     public static function extractParams(array $data)
     {
         $tmp = array();
-        foreach (self::formParams() as $param) {
+        foreach (self::knownParams() as $param) {
             if (array_key_exists($param, $data)) {
                 $tmp[$param] = $data[$param];
             }
@@ -75,7 +75,7 @@ class Base_Model extends Eloquent
     protected  static function flashErrorMessages(Validator $v)
     {
         $errors = $v->errors;
-        foreach (self::formParams() as $param) {
+        foreach (self::knownParams() as $param) {
             if ($errors->has($param)) {
                 $msg = '<span class="label label-warning">Check</span> ';
                 $msg .= implode('<br/>', $errors->get($param));
