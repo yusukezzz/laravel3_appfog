@@ -3,23 +3,16 @@
 appfog ですぐに使えるように設定ファイル等を考慮した laravel です
 設定すべきファイルは下記の通り
 
--   paths.php
-
-    production(appfog で作成したアプリ) のホスト名
-
+- paths.php
+  - production(appfog で作成したアプリ) のホスト名
 -   application/config/production/application.php
-
-    本番向けの key を設定
-    Logentries 向けの severity 等を設定
-
--   application/config/production/database.php
-
-    af tunnel の結果で migration 出来るようにしておくといいと思います
-
--   application/libraries/logentries.php
-
-    appfog で logentries のアドオンを有効にしていると以下の様なLogクラスの出力を自動的に送信します
-    priority は syslog 準拠です。
+  - 本番向けの key を設定
+  - Logentries 向けの severity 等を設定
+- application/config/production/database.php
+  - af tunnel の結果で migration 出来るようにしておくといいと思います
+- application/libraries/logentries.php
+  - appfog で logentries のアドオンを有効にしていると以下の様なLogクラスの出力を自動的に送信します
+  - priority は syslog 準拠です。
 
 ```php
 <?php
