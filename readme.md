@@ -21,17 +21,21 @@ appfog ですぐに使えるように設定ファイル等を考慮した larave
     appfog で logentries のアドオンを有効にしていると以下の様なLogクラスの出力を自動的に送信します
     priority は syslog 準拠です。
 
-    Log::debug('This is just a log message');
-    Log::info('This is just a log message');
-    Log::notice('This is just a log message');
-    Log::warn('This is just a log message');
-    Log::error('This is just a log message');
-    Log::err('This is just a log message');
-    Log::critical('This is just a log message');
-    Log::crit('This is just a log message');
-    Log::alert('This is just a log message');
-    Log::emergency('This is just a log message');
-    Log::emerg('This is just a log message');
+```php
+<?php
+
+Log::debug('This is just a log message');
+Log::info('This is just a log message');
+Log::notice('This is just a log message');
+Log::warn('This is just a log message');
+Log::error('This is just a log message');
+Log::err('This is just a log message');
+Log::critical('This is just a log message');
+Log::crit('This is just a log message');
+Log::alert('This is just a log message');
+Log::emergency('This is just a log message');
+Log::emerg('This is just a log message');
+```
 
 以下、オリジナルの readme
 
