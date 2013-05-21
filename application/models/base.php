@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * Eloquent ORM を継承し、簡単なバリデーションの処理を加えたクラスです
+ * データ挿入時に以下のような感じで使うことを想定しています
+ *
+ * # Hoge extends Base_Model
+ * $valid_params = Hoge::validation();
+ * if ($valid_params === false) {
+ *     throw new Exception('invalid params!');
+ * }
+ * $hoge = Hoge::create($valid_params);
+ * if ($hoge === false) {
+ *     throw new Exception('insert failed!');
+ * }
+ */
 class Base_Model extends Eloquent
 {
     /**
