@@ -63,6 +63,13 @@ Event::listen('500', function($exception)
 	return Response::error('500');
 });
 
+if (Config::get('application.use_logentries')) {
+    Event::listen('laravel.log', function($type, $message)
+    {
+        Logentries::$type($message);
+    });
+}
+
 /*
 |--------------------------------------------------------------------------
 | Route Filters
