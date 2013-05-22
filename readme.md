@@ -1,15 +1,23 @@
 # appfog 向け laravel 3.2.14
 
 appfog ですぐに使えるように設定ファイル等を考慮した laravel です
-設定すべきファイルは下記の通り
 
+弄ったファイル・設定すべきファイルは下記の通り
+
+- .htaccess
+  - appfog はドキュメントルートの指定が出来ないのでここでリクエストを public/ に飛ばす rewrite ルールを書いています
 - paths.php
   - production(appfog で作成したアプリ) のホスト名
--   application/config/production/application.php
+  - ここを書き換えないと設定が切り替わりませんので、appfog でアプリを作ったら忘れずに変更しておきましょう
+- application/config/production/application.php
   - 本番向けの key を設定
   - Logentries 向けの severity 等を設定
+    - 使わない場合は use_logentries を false にして下さい
 - application/config/production/database.php
   - af tunnel の結果で migration 出来るようにしておくといいと思います
+- application/routes.php
+  - laravel.log イベントのリスナーを定義しています
+  - Laravel のロガーが使われたら下記の処理を呼んでいます
 - application/libraries/logentries.php
   - appfog で logentries のアドオンを有効にしていると以下の様なLogクラスの出力を自動的に送信します
   - priority は syslog 準拠です。
