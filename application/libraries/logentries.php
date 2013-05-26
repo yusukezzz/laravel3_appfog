@@ -39,10 +39,11 @@ class Logentries
     public static function __callStatic($type, $params)
     {
         $type = ucfirst($type);
+        $message = (string) $params[0];
         if (!in_array($type, self::$known_levels, true)) {
             $type = 'Emergency';
+            $message .= "orignal type={$type}, ".$message;
         }
-        $message = (string) $params[0];
         list($token ,$persistent, $use_ssl, $severity) = self::getConfigValues();
         $logger = LeLogger::getLogger($token, $persistent, $use_ssl, $severity);
         $logger->$type($message);
