@@ -33,8 +33,9 @@ class Logentries
      * Logentries のログレベルとして解釈する
      * 解釈できない場合はとりあえず Emergency にしておく
      *
-     * @param $type
-     * @param $params
+     * @param string $type
+     * @param array $params
+     * @return void
      */
     public static function __callStatic($type, $params)
     {
